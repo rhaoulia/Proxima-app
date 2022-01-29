@@ -23,8 +23,16 @@ app.on('ready', function(){
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
       contextIsolation: false
+
   }
   }));
+  ipcMain.on('close-window',()=>{
+    mainWindow.close();
+    console.log("bumm");
+
+})
+
+  
   // Quit app when closed
   mainWindow.on('closed', function(){
     app.quit();
@@ -115,4 +123,7 @@ if(process.env.NODE_ENV !== 'production'){
       }
     ]
   });
+
 }
+
+
